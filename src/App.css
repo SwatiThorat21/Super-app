@@ -14,6 +14,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 50vw;
+  height: 102vh;
 }
 .signUp_container {
   display: flex;
@@ -53,6 +54,7 @@ input[type="number"] {
   outline: none;
   border-radius: 4px;
   padding-left: 10px;
+  color: #ffffff;
 }
 input {
   margin-top: 15px;
@@ -61,6 +63,13 @@ input {
 input::placeholder {
   font-size: 14px;
   font-family: "DM Sans", sans-serif;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
 .terms_label {
   color: #7c7c7c;
@@ -105,4 +114,9 @@ input[type="checkbox"] {
 .terms_active {
   color: #72db73;
   margin-left: 5px;
+}
+.terms_active:hover{
+  border-bottom: 1px solid #72db73;
+  cursor: pointer;
+  color: #68cf6a;
 }
