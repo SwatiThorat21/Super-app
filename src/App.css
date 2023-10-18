@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  /* overflow: hidden; */
+  overflow: hidden;
   font-family: "DM Sans", sans-serif;
 }
 .form_container {
@@ -21,7 +21,7 @@ body {
 .bgImg {
   width: 50vw;
   max-width: 100%;
-  height: 100vh;
+  height: 102vh;
 }
 .bg_text_wrapper {
   position: absolute;
@@ -84,13 +84,25 @@ input[type="checkbox"] {
   border-radius: 28px;
   outline: none;
   border: none;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.signUp_Btn:hover {
+  background-color: #68cf6a;
+  cursor: pointer;
 }
 .terms_condi {
   color: #7c7c7c;
   font-family: "Roboto", sans-serif;
-  font-size: 13px;
-  width: 450px;
+  font-size: 14px;
+  width: 420px;
+  margin-top: 10px;
+  letter-spacing: 0.35px;
 }
-.terms_active{
-  color: #72DB73;
+.terms_active {
+  color: #72db73;
+  margin-left: 5px;
 }
