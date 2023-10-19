@@ -6,7 +6,15 @@ export default function FormData() {
     userName: "",
     email: "",
     mobileNo: "",
-    isSharedData: true,
+    isSharedData: false,
+  });
+
+  const [errors, setErrors] = useState({
+    nameErr: false,
+    userNameErr: false,
+    emailErr: false,
+    mobileNoErr: false,
+    isSharedDataErr: false,
   });
 
   function handleChange(e) {
@@ -20,7 +28,46 @@ export default function FormData() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData)
+    // console.log(formData);
+
+    const newErrors = {};
+
+    if (formData.name.length === 0) {
+      newErrors.nameErr = true;
+    } else {
+      newErrors.nameErr = false;
+    }
+
+    if (formData.userName.length === 0) {
+      newErrors.userNameErr = true;
+    } else {
+      newErrors.userNameErr = false;
+    }
+
+    let mailFormat = /\S+@\S+\.\S+/;
+    let mobileFormat = /^\d{10}$/;
+    if (formData.email.length === 0 || !formData.email.match(mailFormat)) {
+      newErrors.emailErr = true;
+    } else {
+      newErrors.emailErr = false;
+    }
+
+    if (
+      formData.mobileNo.length === 0 ||
+      !formData.mobileNo.match(mobileFormat)
+    ) {
+      newErrors.mobileNoErr = true;
+    } else {
+      newErrors.mobileNoErr = false;
+    }
+
+    if (formData.isSharedData === false) {
+      newErrors.isSharedDataErr = true;
+    } else {
+      newErrors.isSharedDataErr = false;
+    }
+    console.log(newErrors);
+    setErrors(newErrors);
   }
 
   return (
@@ -35,29 +82,40 @@ export default function FormData() {
             name="name"
             onChange={handleChange}
             value={formData.name}
+            className={errors.nameErr ? "errorInput" : ""}
           ></input>
+          {errors.nameErr && formData.name.length <= 0 && (
+            <label>Name can not be empty !</label>
+          )}
           <input
             type="text"
             placeholder="UserName"
             name="userName"
             onChange={handleChange}
             value={formData.userName}
+            className={errors.userNameErr ? "errorInput" : ""}
           ></input>
+          {errors.userNameErr && formData.userName.length <= 0 && (
+            <label>User name can not be empty !</label>
+          )}
           <input
-            type="email"
+            type="text"
             placeholder="Email"
             name="email"
             onChange={handleChange}
             value={formData.email}
+            className={errors.emailErr ? "errorInput" : ""}
           ></input>
+          {errors.emailErr && <label>Invalid Email !</label>}
           <input
             type="number"
             placeholder="Mobile"
             name="mobileNo"
             onChange={handleChange}
             value={formData.mobileNo}
+            className={errors.mobileNoErr ? "errorInput" : ""}
           ></input>
-
+          {errors.mobileNoErr && <label>Invalid Mobile Number !</label>}
           <div className="terms_checklist">
             <input
               type="checkbox"
@@ -69,6 +127,9 @@ export default function FormData() {
               Share my registration data with Superapp
             </label>
           </div>
+          {errors.isSharedDataErr && (
+            <label>Check this box if you want to proceed !</label>
+          )}
           <button className="signUp_Btn">Sign up</button>
           <div>
             <p className="terms_condi">

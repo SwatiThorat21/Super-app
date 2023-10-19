@@ -36,19 +36,20 @@ body {
   font-family: "Single Day", cursive;
   color: #72db73;
   font-size: 40px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .form_heading {
   font-family: "DM Sans", sans-serif;
   font-size: 21px;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 input[type="text"],
 input[type="email"],
 input[type="number"] {
-  width: 450px;
+  width: 430px;
   height: 35px;
+  min-height: 35px;
   background-color: #292929;
   border: none;
   outline: none;
@@ -56,8 +57,11 @@ input[type="number"] {
   padding-left: 10px;
   color: #ffffff;
 }
+.errorInput{
+  border: 1px solid red !important;
+}
 input {
-  margin-top: 15px;
+  margin-top: 12px;
   font-family: "DM Sans", sans-serif;
 }
 input::placeholder {
@@ -83,12 +87,13 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   margin-top: 25px;
-  margin-bottom: 30px;
-  width: 450px;
+  margin-bottom: 10px;
+  width: 425px;
 }
 .signUp_Btn {
-  width: 450px;
+  width: 430px;
   height: 35px;
+  min-height: 35px;
   background-color: #72db73;
   border-radius: 28px;
   outline: none;
@@ -106,7 +111,7 @@ input[type="checkbox"] {
 .terms_condi {
   color: #7c7c7c;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   width: 420px;
   margin-top: 10px;
   letter-spacing: 0.35px;
@@ -114,9 +119,15 @@ input[type="checkbox"] {
 .terms_active {
   color: #72db73;
   margin-left: 5px;
+  border-bottom: 1px solid black;
+  transition: border-color 0.5s ease;
 }
 .terms_active:hover{
-  border-bottom: 1px solid #72db73;
+  border-color: #72db73;
   cursor: pointer;
   color: #68cf6a;
+}
+label{
+  color: red;
+  font-size: 13px;
 }
